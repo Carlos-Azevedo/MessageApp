@@ -2,66 +2,68 @@ Reading:
 
 As a User
 When I type my name
-My messages are displayed
+Then my messages are displayed
 Amd they are sorted in cronological order
 
 As a User
 And who hasn't typed any messages
 When I type my name
-No messages are displayed
+Then no messages are displayed
 
 As a User
 Whne I type my name in a different casing
-My msesages are displayed
+Then my msesages are displayed
 And they are sorted in cronological order
 
 Posting:
 
 As a User
 When I type my message
-My message is saved
+Then my message is saved
 
 As a User
 and who wrote my name in different casing
 When I type my message
-My message is saved to me
+Then my message is saved to me
 
 As a User
 And who has never posted a message
 When I type my message
-My message is saved
+Then my message is saved
 
 Following:
 
 As a User
 When I follow someone
-I beomce their follower
+Then I beomce their follower
 
 As a user
 When I follow someone
 And that person doesn't exist
-I don't become their follower
+Then I don't become their follower
 
 As a User
 Who has never posted a message
 When I follow someone
-I don't become their follower
+Then I don't become their follower
 
 Walling:
 
 As a User
 When I wall
-I see all my messages
+Then I see all my messages
 And my followed user's messages
 And they are sorted in cronological order
+And they have their names
 
 As a User
 And who has no followed
 When I wall
-I see my messages
+Then I see my messages
 And they are in cronological order
+And they have my name
 
 As a User
 And who has never posted a message
 When I wall
-No messages are displayed
+Then no messages are displayed
