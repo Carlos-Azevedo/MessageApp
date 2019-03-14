@@ -1,10 +1,12 @@
-﻿using System;
+﻿using MessageAppModels;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace MessageAppInterfaces.Providers
 {
-    interface IMessageAppCommandParser
+    public interface IMessageAppCommandParser
     {
+        Command TranslateUserInputToCommand(string userInput);
     }
 }

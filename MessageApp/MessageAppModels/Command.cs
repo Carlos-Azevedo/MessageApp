@@ -7,7 +7,7 @@ namespace MessageAppModels
     public class Command
     {
         public string User { get; set; }
-        public string Arguments { get; set; }
+        public string Argument { get; set; }
         public CommandEnums MethodCall { get; set; }
     }
 }
