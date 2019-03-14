@@ -1,5 +1,6 @@
 ﻿using MessageAppInterfaces.Repositories;
 using MessageAppModels;
+using MessageAppRepository;
 using NUnit.Framework;
 using Shouldly;
 using System.Collections.Generic;
@@ -16,6 +17,17 @@ namespace MessageAppTestProject.RepositoryTests
 
         private User CurrentUser;
         private User UpdatedUser;
+
+        public UpdateUserTests()
+        {
+            MessageAppRepository = new MessageAppRepo(StoredUsers);
+        }
+
+        [SetUp]
+        public void SetupTests()
+        {
+            StoredUsers.Clear();
+        }
 
         [Test]
         public void UpdateAUser()

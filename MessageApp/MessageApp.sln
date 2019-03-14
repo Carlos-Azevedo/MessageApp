@@ -5,16 +5,18 @@ VisualStudioVersion = 15.0.28307.438
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageApp", "MessageApp\MessageApp.csproj", "{99C48E26-52D2-4871-98A0-B2698C41D97B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageAppTestProject", "MessageAppTestProject\MessageAppTestProject.csproj", "{98524E0E-4723-48C1-BB18-B6375D3A6854}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MessageAppTestProject", "MessageAppTestProject\MessageAppTestProject.csproj", "{98524E0E-4723-48C1-BB18-B6375D3A6854}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B7CF7BE0-C3E1-42EE-BE90-3822AB37DE7C}"
 	ProjectSection(SolutionItems) = preProject
 		Specification.txt = Specification.txt
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageAppModels", "MessageAppModels\MessageAppModels.csproj", "{70C56765-1277-4EC3-B61C-23E921A57202}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MessageAppModels", "MessageAppModels\MessageAppModels.csproj", "{70C56765-1277-4EC3-B61C-23E921A57202}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageAppInterfaces", "MessageAppInterfaces\MessageAppInterfaces.csproj", "{93FCC63F-09AF-4A58-82F6-97F49F46557A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MessageAppInterfaces", "MessageAppInterfaces\MessageAppInterfaces.csproj", "{93FCC63F-09AF-4A58-82F6-97F49F46557A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageAppRepository", "MessageAppRepository\MessageAppRepository.csproj", "{ABE755E6-9142-4FF8-815E-16041F6CE8B4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -38,6 +40,10 @@ Global
 		{93FCC63F-09AF-4A58-82F6-97F49F46557A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{93FCC63F-09AF-4A58-82F6-97F49F46557A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{93FCC63F-09AF-4A58-82F6-97F49F46557A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ABE755E6-9142-4FF8-815E-16041F6CE8B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ABE755E6-9142-4FF8-815E-16041F6CE8B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ABE755E6-9142-4FF8-815E-16041F6CE8B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ABE755E6-9142-4FF8-815E-16041F6CE8B4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

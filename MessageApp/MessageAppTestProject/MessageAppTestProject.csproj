@@ -18,6 +18,7 @@
   <ItemGroup>
     <ProjectReference Include="..\MessageAppInterfaces\MessageAppInterfaces.csproj" />
     <ProjectReference Include="..\MessageAppModels\MessageAppModels.csproj" />
+    <ProjectReference Include="..\MessageAppRepository\MessageAppRepository.csproj" />
   </ItemGroup>
 
 </Project>
