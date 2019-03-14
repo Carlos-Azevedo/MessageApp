@@ -27,6 +27,10 @@ namespace MessageApp
         public void ExecuteCommand(string userInput)
         {
             var command = CommandParser.TranslateUserInputToCommand(userInput);
+            if(command == null)
+            {
+                return;
+            }
             switch(command.MethodCall)
             {
                 case CommandEnums.FollowUser:
