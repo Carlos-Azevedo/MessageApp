@@ -11,8 +11,8 @@ namespace MessageAppInterfaces.Services
 
         List<WallMessage> GetWall(string userName);
 
-        void PostMessage(string userName, string Message);
+        void PostMessage(string userName, string message);
 
-        void FollowUser(string userName, string FollowedName);
+        void FollowUser(string userName, string followedName);
     }
 }

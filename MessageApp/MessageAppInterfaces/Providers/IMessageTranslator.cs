@@ -7,7 +7,7 @@ namespace MessageAppInterfaces.Providers
 {
     public interface IMessageTranslator
     {
-        string ToReadString(Message message);
-        string ToWallString(WallMessage message);
+        string ToReadString(Message message, DateTime currentDateTime);
+        string ToWallString(WallMessage message, DateTime currentDateTime);
     }
 }
