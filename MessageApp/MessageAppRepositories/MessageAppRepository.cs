@@ -3,13 +3,13 @@ using MessageAppModels;
 using System;
 using System.Collections.Generic;
 
-namespace MessageAppRepository
+namespace MessageAppRepositories
 {
-    public class MessageAppRepo : IMessageAppRepository
+    public class MessageAppRepository : IMessageAppRepository
     {
         private readonly Dictionary<string, User> Storage;
 
-        public MessageAppRepo(Dictionary<string, User> storageDictionary)
+        public MessageAppRepository(Dictionary<string, User> storageDictionary)
         {
             Storage = storageDictionary;
         }

@@ -1,6 +1,6 @@
 ﻿using MessageAppInterfaces.Repositories;
 using MessageAppModels;
-using MessageAppRepository;
+using MessageAppRepositories;
 using NUnit.Framework;
 using Shouldly;
 using System.Collections.Generic;
@@ -20,7 +20,7 @@ namespace MessageAppTestProject.RepositoryTests
 
         public UpdateUserTests()
         {
-            MessageAppRepository = new MessageAppRepo(StoredUsers);
+            MessageAppRepository = new MessageAppRepository(StoredUsers);
         }
 
         [SetUp]
@@ -45,9 +45,11 @@ namespace MessageAppTestProject.RepositoryTests
 
         private void WhenTheUserIsUpdated()
         {
-            UpdatedUser = new User("Linda");
-            UpdatedUser.Messages = new List<Message>() { new Message() };
-            UpdatedUser.Following = new List<string>() { "bob" };
+            UpdatedUser = new User("Linda")
+            {
+                Messages = new List<Message>() { new Message() },
+                Following = new List<string>() { "bob" }
+            };
             MessageAppRepository.UpdateUser(UpdatedUser);
         }
 

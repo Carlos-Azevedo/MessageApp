@@ -18,6 +18,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MessageAppInterfaces", "Mes
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageAppRepository", "MessageAppRepository\MessageAppRepository.csproj", "{ABE755E6-9142-4FF8-815E-16041F6CE8B4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageAppServices", "MessageAppServices\MessageAppServices.csproj", "{64FA7529-EDB7-4867-8DFF-A381E22DC9E1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -44,6 +46,10 @@ Global
 		{ABE755E6-9142-4FF8-815E-16041F6CE8B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ABE755E6-9142-4FF8-815E-16041F6CE8B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ABE755E6-9142-4FF8-815E-16041F6CE8B4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{64FA7529-EDB7-4867-8DFF-A381E22DC9E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{64FA7529-EDB7-4867-8DFF-A381E22DC9E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{64FA7529-EDB7-4867-8DFF-A381E22DC9E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{64FA7529-EDB7-4867-8DFF-A381E22DC9E1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
