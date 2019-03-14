@@ -23,7 +23,7 @@ namespace MessageAppTestProject.ServiceTests
             this.Given(_ => GivenAUserExists())
                 .And(_ => GivenTheFollowedUserExists())
                 .When(_ => WhenUserFollowsAnother())
-                .Then(_ => ThenTheUserShouldBeUpdated());
+                .Then(_ => ThenTheUserShouldBeUpdated()).BDDfy();
         }
 
         [Test]
@@ -32,7 +32,7 @@ namespace MessageAppTestProject.ServiceTests
             this.Given(_ => GivenAUserExists())
                 .And(_ => GivenTheUserAlreadyFollowsAnother())
                 .When(_ => WhenUserFollowsAnother())
-                .Then(_ => ThenTheUserShouldNotBeUpdated());
+                .Then(_ => ThenTheUserShouldNotBeUpdated()).BDDfy();
         }
 
         [Test]
@@ -41,7 +41,7 @@ namespace MessageAppTestProject.ServiceTests
             this.Given(_ => GivenAUserExists())
                 .And(_ => GivenTheFollowedUserDoesNotExist())
                 .When(_ => WhenUserFollowsAnother())
-                .Then(_ => ThenTheUserShouldNotBeUpdated());
+                .Then(_ => ThenTheUserShouldNotBeUpdated()).BDDfy();
         }
 
         private void GivenTheFollowedUserDoesNotExist()

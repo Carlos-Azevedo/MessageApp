@@ -26,7 +26,7 @@ namespace MessageAppTestProject.ServiceTests
             this.Given(_ => GivenAUserHasFollows())
                 .When(_ => WhenTheUserWallMessagesAreRetrieved())
                 .Then(_ => ThenExpectedMessagesShouldBeReturned())
-                .And(_ => ThenRetrievedMessagesShouldBeInChronologicalOrder());
+                .And(_ => ThenRetrievedMessagesShouldBeInChronologicalOrder()).BDDfy();
         }
 
         private void GivenAUserHasFollows()

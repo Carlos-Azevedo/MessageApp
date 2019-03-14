@@ -24,14 +24,14 @@ namespace MessageAppTestProject.ServiceTests
         {
             this.Given(_ => GivenAUserExists())
                 .When(_ => WhenAMessageIsPosted())
-                .Then(_ => ThenTheUserShouldHaveThatMessageAdded());
+                .Then(_ => ThenTheUserShouldHaveThatMessageAdded()).BDDfy();
         }
         [Test]
         public void PostMessageForANewUser()
         {
             this.Given(_ => GivenAUserDoesNotExist())
                 .When(_ => WhenAMessageIsPostedByANewUser())
-                .Then(_ => ThenTheUserShouldHaveThatMessageAdded());
+                .Then(_ => ThenTheUserShouldHaveThatMessageAdded()).BDDfy();
         }
         private void GivenAUserDoesNotExist()
         {

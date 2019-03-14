@@ -22,7 +22,7 @@ namespace MessageAppTestProject.ServiceTests
         {
             this.Given(_ => GivenAUserHasMessages())
                 .When(_ => WhenTheUserMessagesAreRetrieved())
-                .Then(_ => ThenNoMessagesShouldBeReturned());
+                .Then(_ => ThenNoMessagesShouldBeReturned()).BDDfy();
         }
 
         [Test]
@@ -31,7 +31,7 @@ namespace MessageAppTestProject.ServiceTests
             this.Given(_ => GivenAUserHasNoMessages())
                 .When(_ => WhenTheUserMessagesAreRetrieved())
                 .Then(_ => ThenTheUserMessagesShouldBeReturned())
-                .And(_ => ThenTheMessagesShouldBeInChronologicalOrder());
+                .And(_ => ThenTheMessagesShouldBeInChronologicalOrder()).BDDfy();
         }
 
         [Test]
@@ -39,7 +39,7 @@ namespace MessageAppTestProject.ServiceTests
         {
             this.Given(_ => GivenAUserDoesntExist())
                 .When(_ => WhenTheUserMessagesAreRetrieved())
-                .Then(_ => ThenNoMessagesShouldBeReturned());
+                .Then(_ => ThenNoMessagesShouldBeReturned()).BDDfy();
         }
         private void GivenAUserDoesntExist()
         {
