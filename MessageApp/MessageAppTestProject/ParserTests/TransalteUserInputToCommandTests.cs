@@ -1,5 +1,6 @@
 ﻿using MessageAppInterfaces.Providers;
 using MessageAppModels;
+using MessageAppProviders;
 using NUnit.Framework;
 using Shouldly;
 using System;
@@ -16,6 +17,11 @@ namespace MessageAppTestProject.ParserTests
         private string UserInput;
         private Command ExpectedParsedCommand;
         private Command ParsedCommand;
+
+        public TransalteUserInputToCommandTests()
+        {
+            MessageAppCommandParser = new MessageAppCommandParser();
+        }
 
         [Test]
         public void TranslatePostCommand()
@@ -61,7 +67,7 @@ namespace MessageAppTestProject.ParserTests
 
         private void GivenAPostMessageCommandIsInput()
         {
-            UserInput = "Bob -> This is my message.";
+            UserInput = "Bob -> This is my message.  ";
             ExpectedParsedCommand = new Command()
             {
                 User = "Bob",
@@ -72,12 +78,12 @@ namespace MessageAppTestProject.ParserTests
 
         private void GivenAFollowCommandIsInput()
         {
-            UserInput = "Bob follows Linda";
+            UserInput = "Bob follows  Linda ";
             ExpectedParsedCommand = new Command()
             {
                 User = "Bob",
                 MethodCall = CommandEnums.FollowUser,
-                Argument = "Linda."
+                Argument = "Linda"
             };
         }
 
