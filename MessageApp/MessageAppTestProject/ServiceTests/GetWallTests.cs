@@ -69,7 +69,7 @@ namespace MessageAppTestProject.ServiceTests
         {
             for (int index = 0; index < RetrievedMessages.Count - 1; index++)
             {
-                RetrievedMessages[index].PostTime.ShouldBeLessThan(RetrievedMessages[index + 1].PostTime);
+                RetrievedMessages[index].PostTime.ShouldBeGreaterThan(RetrievedMessages[index + 1].PostTime);
             }
         }
 

@@ -46,12 +46,35 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MessageAppController.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MessageAppInterfaces\MessageAppInterfaces.csproj">
+      <Project>{93FCC63F-09AF-4A58-82F6-97F49F46557A}</Project>
+      <Name>MessageAppInterfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MessageAppModels\MessageAppModels.csproj">
+      <Project>{70C56765-1277-4EC3-B61C-23E921A57202}</Project>
+      <Name>MessageAppModels</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MessageAppProviders\MessageAppProviders.csproj">
+      <Project>{3BBAC267-B6E6-404C-9F1A-846B8AD56C6B}</Project>
+      <Name>MessageAppProviders</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MessageAppRepositories\MessageAppRepositories.csproj">
+      <Project>{C2FC360B-4A4A-433B-A421-8740BC5BCAA2}</Project>
+      <Name>MessageAppRepositories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MessageAppServices\MessageAppServices.csproj">
+      <Project>{64FA7529-EDB7-4867-8DFF-A381E22DC9E1}</Project>
+      <Name>MessageAppServices</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

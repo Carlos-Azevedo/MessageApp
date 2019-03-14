@@ -53,6 +53,7 @@ namespace MessageAppServices
 
             var userMessages = currentUser.Messages;
             userMessages.Sort((a, b) => a.PostTime.CompareTo(b.PostTime));
+            userMessages.Reverse();
             return userMessages;
         }
 
@@ -77,6 +78,7 @@ namespace MessageAppServices
                 wallMessages.AddRange(ConvertUserMessagesToWallMessages(followedUser));
             }
             wallMessages.Sort((a, b) => a.PostTime.CompareTo(b.PostTime));
+            wallMessages.Reverse();
             return wallMessages;
         }
 
