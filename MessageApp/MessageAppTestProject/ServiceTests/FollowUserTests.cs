@@ -1,6 +1,7 @@
 ﻿using MessageAppInterfaces.Repositories;
 using MessageAppInterfaces.Services;
 using MessageAppModels;
+using MessageAppServices;
 using Moq;
 using NUnit.Framework;
 using Shouldly;
@@ -16,6 +17,13 @@ namespace MessageAppTestProject.ServiceTests
         private IMessageAppService MessageService;
         private User CurrentUser;
         private User FollowedUser;
+
+        public FollowUserTests()
+        {
+            MockRepository mockRepository = new MockRepository(MockBehavior.Strict);
+            MockedRepository = mockRepository.Create<IMessageAppRepository>();
+            MessageService = new MessageAppService(MockedRepository.Object, null);
+        }
 
         [Test]
         public void FollowAUserWhichExists()
@@ -41,7 +49,7 @@ namespace MessageAppTestProject.ServiceTests
             this.Given(_ => GivenAUserExists())
                 .And(_ => GivenTheFollowedUserDoesNotExist())
                 .When(_ => WhenUserFollowsAnother())
-                .Then(_ => ThenTheUserShouldNotBeUpdated()).BDDfy();
+                .Then(_ => ThenTheUserShouldNotBeUpdatedAndBeEmpty()).BDDfy();
         }
 
         private void GivenTheFollowedUserDoesNotExist()
@@ -53,20 +61,23 @@ namespace MessageAppTestProject.ServiceTests
         private void GivenTheUserAlreadyFollowsAnother()
         {
             CurrentUser = new User("Bob");
-            CurrentUser.Following.Add("Linda");
+            FollowedUser = new User("Linda");
+            CurrentUser.Following.Add("linda");
             MockedRepository.Setup(mock => mock.GetUser(CurrentUser.Name)).Returns(CurrentUser);
+            MockedRepository.Setup(mock => mock.GetUser(FollowedUser.Name)).Returns(FollowedUser);
         }
 
         private void GivenAUserExists()
         {
             CurrentUser = new User("Bob");
             MockedRepository.Setup(mock => mock.GetUser(CurrentUser.Name)).Returns(CurrentUser);
-            MockedRepository.Setup(mock => mock.UpdateUser(CurrentUser));
         }
 
         private void GivenTheFollowedUserExists()
         {
             FollowedUser = new User("Linda");
+            MockedRepository.Setup(mock => mock.GetUser(FollowedUser.Name)).Returns(FollowedUser);
+            MockedRepository.Setup(mock => mock.UpdateUser(CurrentUser));
         }
 
         private void WhenUserFollowsAnother()
@@ -77,13 +88,18 @@ namespace MessageAppTestProject.ServiceTests
         private void ThenTheUserShouldBeUpdated()
         {
             CurrentUser.Following.Count.ShouldBe(1);
-            CurrentUser.Following.ShouldContain(FollowedUser.Name);
+            CurrentUser.Following.ShouldContain(FollowedUser.Name.ToLower());
+        }
+
+        private void ThenTheUserShouldNotBeUpdatedAndBeEmpty()
+        {
+            CurrentUser.Following.Count.ShouldBe(0);
         }
 
         private void ThenTheUserShouldNotBeUpdated()
         {
             CurrentUser.Following.Count.ShouldBe(1);
-            CurrentUser.Following.ShouldContain(FollowedUser.Name);
+            CurrentUser.Following.ShouldContain(FollowedUser.Name.ToLower());
         }
     }
 }

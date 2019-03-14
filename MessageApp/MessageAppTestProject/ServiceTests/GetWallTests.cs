@@ -1,6 +1,7 @@
 ﻿using MessageAppInterfaces.Repositories;
 using MessageAppInterfaces.Services;
 using MessageAppModels;
+using MessageAppServices;
 using Moq;
 using NUnit.Framework;
 using Shouldly;
@@ -12,13 +13,20 @@ namespace MessageAppTestProject.ServiceTests
     [TestFixture]
     public class GetWallTests
     {
-        private Mock<IMessageAppRepository> MockedRepostiory;
+        private Mock<IMessageAppRepository> MockedRepository;
         private IMessageAppService MessageService;
         List<WallMessage> RetrievedMessages;
         List<WallMessage> ExpectedMessages;
         private User CurrentUser;
         private User FollowedUser;
         private User AnotherFollowedUser;
+
+        public GetWallTests()
+        {
+            MockRepository mockRepository = new MockRepository(MockBehavior.Strict);
+            MockedRepository = mockRepository.Create<IMessageAppRepository>();
+            MessageService = new MessageAppService(MockedRepository.Object, null);
+        }
 
         [Test]
         public void GetWallForUserWithFollows()
@@ -38,6 +46,9 @@ namespace MessageAppTestProject.ServiceTests
             AnotherFollowedUser = new User("Joe");
             AnotherFollowedUser.Messages.Add(new Message() { Contents = "Joe Message", PostTime = new DateTime(300) });
 
+            CurrentUser.Following.Add(FollowedUser.Name.ToLower());
+            CurrentUser.Following.Add(AnotherFollowedUser.Name.ToLower());
+
             ExpectedMessages = new List<WallMessage>()
             {
                 new WallMessage(CurrentUser.Name, CurrentUser.Messages[0]),
@@ -48,9 +59,9 @@ namespace MessageAppTestProject.ServiceTests
 
         private void WhenTheUserWallMessagesAreRetrieved()
         {
-            MockedRepostiory.Setup(mock => mock.GetUser(CurrentUser.Name)).Returns(CurrentUser);
-            MockedRepostiory.Setup(mock => mock.GetUser(FollowedUser.Name)).Returns(FollowedUser);
-            MockedRepostiory.Setup(mock => mock.GetUser(AnotherFollowedUser.Name)).Returns(AnotherFollowedUser);
+            MockedRepository.Setup(mock => mock.GetUser(CurrentUser.Name)).Returns(CurrentUser);
+            MockedRepository.Setup(mock => mock.GetUser(FollowedUser.Name.ToLower())).Returns(FollowedUser);
+            MockedRepository.Setup(mock => mock.GetUser(AnotherFollowedUser.Name.ToLower())).Returns(AnotherFollowedUser);
             RetrievedMessages = MessageService.GetWall(CurrentUser.Name);
         }
 
@@ -58,7 +69,7 @@ namespace MessageAppTestProject.ServiceTests
         {
             for (int index = 0; index < RetrievedMessages.Count - 1; index++)
             {
-                RetrievedMessages[index].PostTime.ShouldBeGreaterThan(RetrievedMessages[index + 1].PostTime);
+                RetrievedMessages[index].PostTime.ShouldBeLessThan(RetrievedMessages[index + 1].PostTime);
             }
         }
 
